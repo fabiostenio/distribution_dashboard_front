@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="header-brand">
+    <span class="logo-icon">💳</span>
+    <span class="brand-name">FlowPay <span class="brand-sub">— Central de Atendimentos</span></span>
+  </div>
+  <div class="header-meta">
+    <span class="update-time">Atualizado em: {{ geradoEmFormatado }}</span>
+    <span class="status-badge" [class.online]="online" [class.offline]="!online">
+      <span class="status-dot"></span>
+      {{ online ? 'Online' : 'Sem conexão' }}
+    </span>
+  </div>
+</header>

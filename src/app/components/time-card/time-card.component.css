@@ -1,0 +1,148 @@
+.time-card {
+  background: #1e2535;
+  border: 1px solid #2a3040;
+  border-radius: 12px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.time-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #2a3040;
+}
+
+/* Progress bar */
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.progress-track {
+  height: 7px;
+  background: #2a3040;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.progress-fill.agent-fill { background: #14b8a6; }
+.progress-fill.agent-fill.full { background: #ef4444; }
+
+/* Counters */
+.counters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.counter {
+  flex: 1;
+  background: #161b27;
+  border-radius: 8px;
+  padding: 0.6rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.counter-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.counter-val.yellow { color: #eab308; }
+.counter-val.orange { color: #f97316; }
+.counter-val.green  { color: #22c55e; }
+
+.counter-lbl {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Agents */
+.agents-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.agents-title {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+
+.agent-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.agent-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agent-name {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.agent-cap-label {
+  font-size: 0.72rem;
+  color: #64748b;
+  text-align: right;
+}
+
+.agent-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.agent-badge.disponivel {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.agent-badge.lotado {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.no-agents {
+  font-size: 0.8rem;
+  color: #475569;
+  text-align: center;
+  padding: 0.5rem 0;
+}

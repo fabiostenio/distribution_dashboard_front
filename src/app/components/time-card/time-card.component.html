@@ -1,0 +1,54 @@
+<div class="time-card">
+  <h3 class="time-title">{{ timeLabel(time.time) }}</h3>
+
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>Atendimentos ativos</span>
+      <span>{{ time.abertos }} / {{ time.totalAtendimentos }}</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" [style.width.%]="progressPercent"></div>
+    </div>
+  </div>
+
+  <div class="counters">
+    <div class="counter">
+      <span class="counter-val yellow">{{ time.abertos }}</span>
+      <span class="counter-lbl">Abertos</span>
+    </div>
+    <div class="counter">
+      <span class="counter-val orange">{{ time.emFila }}</span>
+      <span class="counter-lbl">Em Fila</span>
+    </div>
+    <div class="counter">
+      <span class="counter-val green">{{ time.finalizados }}</span>
+      <span class="counter-lbl">Finalizados</span>
+    </div>
+  </div>
+
+  <div class="agents-section">
+    <h4 class="agents-title">Agentes</h4>
+    @for (agente of time.agentes; track agente.id) {
+      <div class="agent-row">
+        <div class="agent-info">
+          <span class="agent-name">{{ agente.nome }}</span>
+          <span class="agent-badge" [class.disponivel]="agente.disponivel" [class.lotado]="!agente.disponivel">
+            {{ agente.disponivel ? 'Disponível' : 'Lotado' }}
+          </span>
+        </div>
+        <div class="agent-cap-label">
+          <span>{{ agente.atendimentosAtivos }} / {{ agente.capacidadeMaxima }}</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill agent-fill"
+               [class.full]="!agente.disponivel"
+               [style.width.%]="capacidadePercent(agente.atendimentosAtivos, agente.capacidadeMaxima)">
+          </div>
+        </div>
+      </div>
+    }
+    @if (time.agentes.length === 0) {
+      <p class="no-agents">Nenhum agente neste time.</p>
+    }
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<section class="fila-section">
+  <h2 class="section-title">⏳ Fila de Espera</h2>
+
+  @if (fila.totalEmFila === 0) {
+    <div class="empty-queue">
+      <span class="empty-icon">🎉</span>
+      <span>Nenhum ticket aguardando</span>
+    </div>
+  } @else {
+    <div class="fila-summary">
+      <div class="summary-card">
+        <span class="summary-val orange">{{ fila.totalEmFila }}</span>
+        <span class="summary-lbl">Total em Fila</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-val red">{{ formatMinutes(fila.tempoEsperaMaximoMinutos) }}</span>
+        <span class="summary-lbl">Espera Máxima</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-val yellow">{{ formatMinutes(fila.tempoEsperaMedioMinutos) }}</span>
+        <span class="summary-lbl">Espera Média</span>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="fila-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Em Fila</th>
+            <th>Ticket mais antigo</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of fila.porTime; track row.time) {
+            <tr>
+              <td>{{ row.time }}</td>
+              <td>
+                <span class="queue-count" [class.has-queue]="row.emFila > 0">{{ row.emFila }}</span>
+              </td>
+              <td>{{ formatDate(row.ticketMaisAntigoEm) }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

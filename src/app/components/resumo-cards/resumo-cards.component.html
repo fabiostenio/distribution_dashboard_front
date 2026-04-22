@@ -1,0 +1,9 @@
+<section class="resumo-grid">
+  @for (card of cards; track card.label) {
+    <div class="card" [class]="card.colorClass">
+      <div class="card-icon">{{ card.icon }}</div>
+      <div class="card-value">{{ card.value }}</div>
+      <div class="card-label">{{ card.label }}</div>
+    </div>
+  }
+</section>

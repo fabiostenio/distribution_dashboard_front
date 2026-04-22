@@ -1,0 +1,65 @@
+.resumo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 1200px) {
+  .resumo-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .resumo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.card {
+  background: #1e2535;
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #2a3040;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.card-icon { font-size: 1.6rem; }
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card.blue   { border-top: 3px solid #3b82f6; }
+.card.blue   .card-value { color: #3b82f6; }
+
+.card.yellow { border-top: 3px solid #eab308; }
+.card.yellow .card-value { color: #eab308; }
+
+.card.orange { border-top: 3px solid #f97316; }
+.card.orange .card-value { color: #f97316; }
+
+.card.green  { border-top: 3px solid #22c55e; }
+.card.green  .card-value { color: #22c55e; }
+
+.card.teal   { border-top: 3px solid #14b8a6; }
+.card.teal   .card-value { color: #14b8a6; }
+
+.card.red    { border-top: 3px solid #ef4444; }
+.card.red    .card-value { color: #ef4444; }
