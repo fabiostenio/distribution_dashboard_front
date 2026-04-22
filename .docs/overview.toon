@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════╗
+║           FLOWPAY — DASHBOARD FRONTEND  (resumo)                 ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Stack    │ Angular 21 · TypeScript 5.9 · RxJS 7.8 · Node 22   ║
+║  Estilo   │ CSS puro por componente · Dark mode · Responsivo    ║
+║  Infra    │ Docker (Node 22 Alpine) · Makefile · docker-compose  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  DADOS    │ GET /dashboard  →  polling 10s                       ║
+║           │ Sem auth · JSON · Backend: localhost:8080            ║
+╠══════════════════════════════════════════════════════════════════╣
+║  TELAS    │ Header  →  badge Online/Offline + timestamp          ║
+║           │ Cards   →  6 métricas (tickets · agentes)            ║
+║           │ Times   →  3 colunas: CARTÕES · EMPRÉSTIMOS · OUTROS ║
+║           │ Fila    →  tabela por time + tempos de espera         ║
+╠══════════════════════════════════════════════════════════════════╣
+║  INICIA   │ make build  →  make serve  →  http://localhost:4200  ║
+╚══════════════════════════════════════════════════════════════════╝

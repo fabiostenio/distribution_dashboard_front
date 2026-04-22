@@ -1,0 +1,25 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                  MAKEFILE — REFERÊNCIA RÁPIDA                    ║
+╠══════════════════════════════════════════════════════════════════╣
+║  SETUP                                                           ║
+║   make build          Constrói imagem Docker                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║  SERVIDOR                                                        ║
+║   make serve          ng serve hot-reload → :4200                ║
+║   make start          npm start           → :4200                ║
+╠══════════════════════════════════════════════════════════════════╣
+║  CICLO DE VIDA                                                   ║
+║   make up             sobe em background                         ║
+║   make down           para e remove container                    ║
+║   make restart        reinicia                                   ║
+║   make logs           logs em tempo real                         ║
+╠══════════════════════════════════════════════════════════════════╣
+║  UTILITÁRIOS                                                     ║
+║   make shell          sh interativo no container                 ║
+║   make install        npm install no container                   ║
+║   make ng  CMD='...'  qualquer ng command                        ║
+║   make npm CMD='...'  qualquer npm command                       ║
+╠══════════════════════════════════════════════════════════════════╣
+║  LIMPEZA                                                         ║
+║   make clean          remove container + imagem + volumes        ║
+╚══════════════════════════════════════════════════════════════════╝

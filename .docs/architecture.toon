@@ -1,0 +1,24 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                    ARQUITETURA — FLUXO                           ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║   Backend :8080                                                  ║
+║       │  GET /dashboard  (interval 10s + switchMap)              ║
+║       ▼                                                          ║
+║   DashboardService  (HttpClient)                                 ║
+║       │  Observable<DashboardResponse>                           ║
+║       ▼                                                          ║
+║   App Component  ──  Signals                                     ║
+║   ├─ dashboard = signal<DashboardResponse | null>                ║
+║   ├─ online    = signal<boolean>                                 ║
+║   └─ erro      = signal<string | null>                           ║
+║       │                                                          ║
+║       ├──▶ HeaderComponent       [geradoEm, online]              ║
+║       ├──▶ ResumoCardsComponent  [resumo]                        ║
+║       ├──▶ TimeCardComponent ×3  [time]   ← CARTOES/EMP/OUTROS  ║
+║       └──▶ FilaPanelComponent    [fila]                          ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  ERRO HTTP  →  online.set(false)  +  mantém último dado          ║
+║  SIGNALS    →  obrigatório no Angular 21 (sem Zone.js implícito) ║
+╚══════════════════════════════════════════════════════════════════╝

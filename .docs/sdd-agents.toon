@@ -1,0 +1,77 @@
+SDD — Agentes de IA
+===================
+
+METODOLOGIA
+-----------
+SDD = Software Development with AI Agents.
+Cada papel do processo tem um agente com identidade, escopo e instruções próprias.
+Ferramentas compatíveis: GitHub Copilot Agent Mode, Cursor, qualquer LLM.
+
+ESTRUTURA DE ARQUIVOS
+---------------------
+.github/
+  agents/<nome>.agent.md        quem é o agente, o que faz
+  prompts/<nome>.prompt.md      como ativar (prompts prontos)
+  instructions/<nome>.instructs.md  comportamento, formatos, checklists
+
+AGENTES
+-------
+
+[ engenheiro-front ]
+  Papel    : guardião da arquitetura e infraestrutura
+  Ativa    : nova feature com impacto arquitetural
+             nova dependência externa proposta
+             mudança em Dockerfile / docker-compose / Makefile
+  Faz      : revisa padrões Angular 21
+             avalia dependências (bundle, manutenção, compatibilidade)
+             documenta débitos técnicos
+
+[ dev-senior-angular ]
+  Papel    : implementador Angular 21
+  Ativa    : criar/modificar componente ou serviço
+             corrigir bug em template ou lógica
+             atualizar interfaces em dashboard.model.ts
+  Faz      : gera código standalone + signals + @if/@for
+             segue paleta CSS dark mode do projeto
+             trata erros com catchError
+
+[ po ]
+  Papel    : product owner — voz do negócio
+  Ativa    : especificar nova feature
+             definir ou validar critérios de aceite
+             priorizar backlog
+  Faz      : histórias Como/Quero/Para
+             critérios de aceite objetivos
+             priorização por Valor × Esforço
+
+[ planning ]
+  Papel    : planejador técnico
+  Ativa    : quebrar épico em tarefas
+             planejar sprint
+             mapear dependências
+  Faz      : tarefas com passos e DoD
+             estimativas em Story Points (1–8)
+             grafo de dependências
+
+FLUXO ENTRE AGENTES
+-------------------
+PO  ──historia──▶  PLANNING  ──tarefas──▶  DEV SENIOR  ──revisão──▶  ENGENHEIRO
+PO  ◀──────────────────────────────────────validação──────────────────────────
+
+MAPA DE ÉPICOS
+--------------
+E1  Core Dashboard          ✅ Concluído
+E2  Qualidade e Testes      🔲 Próximo
+E3  Alertas e Interatividade 🔲 Pendente
+E4  CI/CD GitHub Actions    🔲 Pendente
+
+COMO USAR
+---------
+Copilot Agent Mode:
+  "Leia .github/instructions/dev-senior-angular.instructs.md e crie um componente..."
+
+Cursor:
+  Adicione o .agent.md ao contexto e use o Composer.
+
+Qualquer LLM:
+  Copie o prompt de .github/prompts/<nome>.prompt.md e cole no chat.

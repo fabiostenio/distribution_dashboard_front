@@ -1,0 +1,27 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                  DOCKER — FLUXO DE REDE                          ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║   Navegador                                                      ║
+║      │  http://localhost:4200                                    ║
+║      ▼                                                           ║
+║   ┌─────────────────────────────────────┐                        ║
+║   │  Container  (Node 22 Alpine)        │                        ║
+║   │  ng serve --host 0.0.0.0            │                        ║
+║   │                                     │                        ║
+║   │  /dashboard  →  proxy  ─────────────┼──▶ host:8080 (backend)║
+║   │                   ▲                 │                        ║
+║   │        host.docker.internal         │                        ║
+║   │        (extra_hosts no Linux)       │                        ║
+║   └─────────────────────────────────────┘                        ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  VOLUMES                                                         ║
+║   .:/app              → hot-reload (código do host no container) ║
+║   /app/node_modules   → isolado do host                          ║
+║   /app/.angular       → cache de build isolado                   ║
+╠══════════════════════════════════════════════════════════════════╣
+║  REBUILD NECESSÁRIO QUANDO                                       ║
+║   • package.json mudar  │  Dockerfile mudar                      ║
+║   src/ → hot-reload cuida automaticamente                        ║
+╚══════════════════════════════════════════════════════════════════╝
